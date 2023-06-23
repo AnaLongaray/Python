@@ -45,7 +45,7 @@ for index, table in enumerate(tableList, start=start_index):
             mergeCond = mergeCond + f" and t.{c} = s.{c}"
     
     spark.sql(f"""
-    MERGE INTO bronze.lperp_{table} t
+    MERGE INTO bronze.{table} t
     USING novo s
     ON {mergeCond}
     WHEN MATCHED THEN UPDATE SET *
