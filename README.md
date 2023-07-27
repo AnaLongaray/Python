@@ -7,3 +7,12 @@ percorrerListaJoinTables = a partir de uma lista de tabelas que foram salvas na 
 
 percorrerListaCriarDf = começando o tratamento dos dados para ler todos os dados da tabela com for 
 
+
+
+
+
+Bônus de Links Úteis
+
+https://jsonpathfinder.com/ - consulta caminho do Json
+https://jsonformatter.org - formatar Json
+https://www.drawio.com/ - Modelagem online e simples
