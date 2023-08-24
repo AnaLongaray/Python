@@ -32,7 +32,7 @@ def send_message_to_teams():
                             },
                             {
                                 "name": "runId",
-                                "value": "<a href='https://web.azuresynapse.net/pt-br/monitoring/pipelineruns/@{pipeline().RunId}?workspace=fsfdfsdfFresourceGroups%2FrgdasdfsdfsdfsdfsdfGMicrosoft.Synapse%2Hworkspaces%2issdftfgdfgwprdfgeu2'>@{pipeline().RunId}</a>"
+                                "value": "<a href='https://web.azuresynapse.net/pt-br/monitoring/pipelineruns/@{pipeline().RunId}?workspace=suhduhasudhasudhausd'>@{pipeline().RunId}</a>"
                             }, # de acordo com a URL para que possa abrir sendo adicionado dinamicamente apenas o runId
                             
                         ]
