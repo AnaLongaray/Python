@@ -1,0 +1,32 @@
+import os
+
+
+# Criar pastas necessárias para trabalho
+# Caminho base onde as pastas serão criadas
+caminho_base = r'C:\Users\exemplo\Documents\SITE_Exemplo'
+
+# Lista de pastas a serem criadas
+pastas = [
+    'assets',
+    'assets/css',
+    'assets/js',
+    'assets/img',
+    'pages',
+    'components',
+    'scripts'
+]
+
+def criar_pastas(caminho_base, pastas):
+    for pasta in pastas:
+        caminho_pasta = os.path.join(caminho_base, pasta)
+        try:
+            os.makedirs(caminho_pasta)
+            print(f'Pasta criada: {caminho_pasta}')
+        except FileExistsError:
+            print(f'A pasta {caminho_pasta} já existe.')
+
+if __name__ == "__main__":
+    criar_pastas(caminho_base, pastas)
+
+
+        
