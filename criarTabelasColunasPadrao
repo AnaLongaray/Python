@@ -1,0 +1,25 @@
+# PRIMEIRO CREATE TABLE PARA BASE DA DEV - SEMPRE PRECISA CRIAR A PRIMEIRA VEZ PARA DEPOIS PODER SER USADO PELO SYNK
+
+from pyspark.sql import * 
+from pyspark.sql.functions import *
+
+schema = "catalog.schema"
+schemaC = "dev_catalog.schema"
+tables = [row["tableName"] for row  in spark.sql(f"""SHOW TABLES IN {schema}""").select(col("tableName")).where(col("tableName").like("%condition%")).collect()]
+
+
+for item in tables:
+    defName = schema + "." + item
+    defNameC = schemaC + "." + item
+    spark.sql(f""" DESCRIBE {defName} """)
+    colunas = [row["col_name"] for row  in spark.sql(f""" DESCRIBE {defName} """).select(col("col_name")).collect()]
+    tipos_dados = [row["data_type"] for row  in spark.sql(f""" DESCRIBE {defName} """).select(col("data_type")).collect()]
+    print(defNameC)
+
+    create_table_query = f"CREATE TABLE IF NOT EXISTS {defNameC} ("
+    for coluna, tipo_dado in zip(colunas, tipos_dados):
+        create_table_query += f"{coluna} {tipo_dado}, "
+    create_table_query = create_table_query.rstrip(", ") + ")"
+
+    # Imprimir a consulta de criação da tabela
+    print(create_table_query)
